@@ -3,8 +3,6 @@ const addToCart = async (id) => {
   const result = await data.json();
   const { name, summary, property_type, images,number_of_reviews,price,_id} = result.find((item) => item._id == id);
   const cartItems=getItemsFromStorage()
-  
-  console.log(cartItems);
   cartItems.push({ name, summary, property_type, images,number_of_reviews,price,_id});
   localStorage.setItem('saved-Cart', JSON.stringify(cartItems))
   //const cartItemsContainer = document.getElementById("cart-items");
@@ -34,7 +32,7 @@ const displayCartItems=()=>{
         <td><span> <i onclick='deleteItemFromCart(${_id})' class="mx-2 bi bi-trash3 text-danger"></i>
         </span> 
         <span> 
-        <i class="text-success bi bi-credit-card-fill" onclick='handlePaymentInfo(${_id})' data-bs-toggle="modal" data-bs-target="#paymenModal" ></i> 
+        <i class="text-success bi bi-credit-card-fill" onclick='handlePaymentInfo(${_id})' data-bs-toggle="modal" data-bs-target="#paymentModal" ></i> 
         </span></td>
        
         </tr>
